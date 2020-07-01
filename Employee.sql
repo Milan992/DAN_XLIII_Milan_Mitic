@@ -59,6 +59,8 @@ AccessLevelID int foreign key (AccessLevelID) references tblAccessLevel(AccessLe
 
 create table tblReport(
 ReportID int identity(1,1) primary key,
+EmployeeID int foreign key (EmployeeID) references tblEmployee(EmployeeID) not null,
+FullName varchar(30) not null,
 ReportDate date not null,
 Project varchar(30),
 Position varchar(30),
