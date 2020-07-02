@@ -9,5 +9,16 @@ namespace WpfEmployeeRecord.ViewModels
     class MainWindowViewModel : ViewModelBase
     {
 
+        Service service = new Service();
+        MainWindow main;
+
+        #region Constructors
+
+        public MainWindowViewModel(MainWindow mainOpen)
+        {
+            main = mainOpen;
+        }
+
+        #endregion
     }
 }

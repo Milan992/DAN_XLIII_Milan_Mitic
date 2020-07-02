@@ -10,8 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfEmployeeRecord.ViewModels;
 
 namespace WpfEmployeeRecord
 {
@@ -23,6 +22,7 @@ namespace WpfEmployeeRecord
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel(this);
         }
     }
 }

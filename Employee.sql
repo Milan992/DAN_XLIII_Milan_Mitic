@@ -19,12 +19,6 @@ drop table tblEmployee;
 if exists (SELECT name FROM sys.sysobjects WHERE name = 'tblSector')
 drop table tblSector;
 
-if exists (SELECT name FROM sys.sysobjects WHERE name = 'vwEmployee')
-drop view vwEmployee;
-
-if exists (SELECT name FROM sys.sysobjects WHERE name = 'vwEmployees')
-drop view vwEmployees;
-
 
 Create table tblAccessLevel (
 AccessLevelID int identity (1,1) primary key,
