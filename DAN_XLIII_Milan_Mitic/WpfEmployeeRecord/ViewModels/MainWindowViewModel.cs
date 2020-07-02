@@ -86,6 +86,35 @@ namespace WpfEmployeeRecord.ViewModels
                         Employee employee = new Employee();
                         employee.ShowDialog();
                     }
+                    else if (service.Role(UserName, Password) == "modify-HR")
+                    {
+
+                    }
+                    else if (service.Role(UserName, Password) == "modify-R&D")
+                    {
+
+                    }
+                    else if (service.Role(UserName, Password) == "modify-Finances")
+                    {
+
+                    }
+                    else if (service.Role(UserName, Password) == "read-only-HR")
+                    {
+
+                    }
+                    else if (service.Role(UserName, Password) == "read-only-R&D")
+                    {
+
+                    }
+                    else if (service.Role(UserName, Password) == "read-only-Finances")
+                    {
+
+                    }
+                }
+                else if (UserName == "WPFadmin" && Password == "WPFadmin")
+                {
+                    Admin admin = new Admin();
+                    admin.ShowDialog();
                 }
                 else
                 {
