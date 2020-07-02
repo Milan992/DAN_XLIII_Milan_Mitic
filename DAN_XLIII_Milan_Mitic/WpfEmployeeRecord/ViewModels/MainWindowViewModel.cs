@@ -81,34 +81,40 @@ namespace WpfEmployeeRecord.ViewModels
             {
                 if (service.IsEmployee(UserName, Password))
                 {
-                    if (service.Role(UserName, Password) == "emloyee")
+                    if (service.Role(UserName, Password) == "employee")
                     {
                         Employee employee = new Employee();
                         employee.ShowDialog();
                     }
                     else if (service.Role(UserName, Password) == "modify-HR")
                     {
-
+                        ModifyHRView mhr = new ModifyHRView();
+                        mhr.ShowDialog();
                     }
                     else if (service.Role(UserName, Password) == "modify-R&D")
                     {
-
+                        ModifyRDView mrd = new ModifyRDView();
+                        mrd.ShowDialog();
                     }
                     else if (service.Role(UserName, Password) == "modify-Finances")
                     {
-
+                        ModifyFinancesView mf = new ModifyFinancesView();
+                        mf.ShowDialog();
                     }
                     else if (service.Role(UserName, Password) == "read-only-HR")
                     {
-
+                        ReadOnlyHRView rohr = new ReadOnlyHRView();
+                        rohr.ShowDialog();
                     }
                     else if (service.Role(UserName, Password) == "read-only-R&D")
                     {
-
+                        ReadOnlyRDView rord = new ReadOnlyRDView();
+                        rord.ShowDialog();
                     }
                     else if (service.Role(UserName, Password) == "read-only-Finances")
                     {
-
+                        ReadOnlyFinancesView rof = new ReadOnlyFinancesView();
+                        rof.ShowDialog();
                     }
                 }
                 else if (UserName == "WPFadmin" && Password == "WPFadmin")
