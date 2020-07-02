@@ -68,6 +68,12 @@
     <Compile Include="Service.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ModifyFinancesViewModel.cs" />
+    <Compile Include="ViewModels\ModifyHRViewModel.cs" />
+    <Compile Include="ViewModels\ModifyRDViewModel.cs" />
+    <Compile Include="ViewModels\ReadOnlyFinancesViewModel.cs" />
+    <Compile Include="ViewModels\ReadOnlyHRViewModel.cs" />
+    <Compile Include="ViewModels\ReadOnlyRDViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>

@@ -180,5 +180,23 @@ namespace WpfEmployeeRecord
             DateTime dateOfBirth = DateTime.ParseExact(date, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
             return dateOfBirth;
         }
+
+        public List<tblEmployee> GetAllEmployees()
+        {
+            try
+            {
+                using (EmployeeEntities context = new EmployeeEntities())
+                {
+                    List<tblEmployee> list = new List<tblEmployee>();
+                    list = (from x in context.tblEmployees select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
     }
 }
