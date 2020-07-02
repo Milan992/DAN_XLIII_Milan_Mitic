@@ -39,5 +39,11 @@
                                     Binding="{Binding UserName}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Add employee"
+                Command="{Binding AddEmployee, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="20,215,0,0"
+                VerticalAlignment="Top"
+                Width="130" />
     </Grid>
 </Window>
