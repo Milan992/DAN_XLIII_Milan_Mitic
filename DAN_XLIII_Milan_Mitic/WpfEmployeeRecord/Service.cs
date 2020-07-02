@@ -60,12 +60,16 @@ namespace WpfEmployeeRecord
             }
         }
 
+        /// <summary>
+        /// Adds an employee to database.
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         public tblEmployee AddEmployee(tblEmployee employee)
         {
             try
             {
                 employee.DateOfBirth = GetDateFromJmbg(employee.JMBG);
-
                 using (EmployeeEntities context = new EmployeeEntities())
                 {
                     tblEmployee newEmployee = new tblEmployee();
@@ -94,9 +98,31 @@ namespace WpfEmployeeRecord
                 return null;
             }
         }
+
+        /// <summary>
+        /// Adds a manager to database.
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <param name="sectorID"></param>
+        /// <param name="accessLevelID"></param>
         public void AddManager(int employeeID, int sectorID, int accessLevelID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (EmployeeEntities context = new EmployeeEntities())
+                {
+                    tblManager manager = new tblManager();
+                    manager.EmployeeID = employeeID;
+                    manager.SectorID = sectorID;
+                    manager.AccessLevelID = accessLevelID;
+                    context.tblManagers.Add(manager);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+            }
         }
 
         /// <summary>
@@ -141,6 +167,18 @@ namespace WpfEmployeeRecord
                 System.Diagnostics.Debug.Write("Exception" + ex.Message.ToString());
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Caculates date from JMBG.
+        /// </summary>
+        /// <param name="jMBG"></param>
+        /// <returns></returns>
+        public DateTime GetDateFromJmbg(string jmbg)
+        {
+            string date = "1" + jmbg.Substring(4, 3) + "-" + jmbg.Substring(2, 2) + "-" + jmbg.Substring(0, 2);
+            DateTime dateOfBirth = DateTime.ParseExact(date, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            return dateOfBirth;
         }
     }
 }

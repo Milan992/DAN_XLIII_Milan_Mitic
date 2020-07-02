@@ -144,8 +144,9 @@ namespace WpfEmployeeRecord.ViewModels
         {
             try
             {
-               tblEmployee newEmployee = service.AddEmployee(Employee);
+                tblEmployee newEmployee = service.AddEmployee(Employee); ;
                 service.AddManager(newEmployee.EmployeeID, Sector.SectorID, AccessLevel.AccessLevelID);
+                MessageBox.Show("Manager saved.");
             }
             catch (Exception ex)
             {
@@ -155,15 +156,7 @@ namespace WpfEmployeeRecord.ViewModels
 
         private bool CanSaveExecute()
         {
-            if (!string.IsNullOrEmpty(Employee.JMBG))
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Some fields are in incorrect format.");
-                return false;
-            }
+            return true;
         }
 
         private ICommand logOut;
