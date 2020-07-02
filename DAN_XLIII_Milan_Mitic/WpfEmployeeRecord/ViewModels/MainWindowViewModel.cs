@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfEmployeeRecord.Model;
 using WpfEmployeeRecord.Views;
 
 namespace WpfEmployeeRecord.ViewModels
@@ -81,6 +83,17 @@ namespace WpfEmployeeRecord.ViewModels
             {
                 if (service.IsEmployee(UserName, Password))
                 {
+                    try
+                    {
+                        using (EmployeeEntities context = new EmployeeEntities())
+                        {
+                            tblEmployee employee = (from x in context.tblEmployees where x.UserName == userName && x.Pass == password select x).First();
+                            File.WriteAllText(@"..\..\ID.txt", Convert.ToString(employee.EmployeeID));
+                        }
+                    }
+                    catch
+                    {
+                    }
                     if (service.Role(UserName, Password) == "employee")
                     {
                         Employee employee = new Employee();

@@ -37,6 +37,28 @@ namespace WpfEmployeeRecord
             }
         }
 
+        public void AddReport(tblReport report)
+        {
+            report.ReportDate = DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+
+            using (StreamReader sr = new StreamReader("../../ID.txt"))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    report.EmployeeID = Convert.ToInt32(line);
+                }
+            }
+            using (EmployeeEntities context = new EmployeeEntities())
+            {
+                tblEmployee employee = (from x in context.tblEmployees where x.EmployeeID == report.EmployeeID select x).First();
+                report.FullName = employee.EmployeeName + " " + employee.EmployeeLastName; 
+                context.tblReports.Add(report);
+                context.SaveChanges();
+            }
+
+        }
+
         /// <summary>
         /// Checks if there is any employee in the database with entered username and password.
         /// </summary>

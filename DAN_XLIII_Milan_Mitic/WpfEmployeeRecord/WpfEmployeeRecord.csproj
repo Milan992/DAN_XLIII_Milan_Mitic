@@ -68,6 +68,7 @@
     <Compile Include="Service.cs" />
     <Compile Include="ViewModels\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ModifyFinancesViewModel.cs" />
     <Compile Include="ViewModels\ModifyHRViewModel.cs" />
