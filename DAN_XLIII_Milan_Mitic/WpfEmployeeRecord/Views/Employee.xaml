@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfEmployeeRecord.Views.Employee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfEmployeeRecord.Views"
+        mc:Ignorable="d"
+        Title="Report" Height="300" Width="300">
+    <Grid>
+        <Label Content="Project:"
+               HorizontalAlignment="Left"
+               Margin="10,10,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Position:"
+               HorizontalAlignment="Left"
+               Margin="10,41,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Hours:"
+               HorizontalAlignment="Left"
+               Margin="10,72,0,0"
+               VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="67,14,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Report.Project, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="67,45,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Report.Position, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 RenderTransformOrigin="-1.417,-2.609" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="67,73,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Report.HoursWorking, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <Button Content="Save"
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="10,130,0,0"
+                VerticalAlignment="Top"
+                Width="75" />
+    </Grid>
+</Window>

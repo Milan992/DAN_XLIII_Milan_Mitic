@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="ViewModels\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ModifyFinancesViewModel.cs" />
+    <Compile Include="ViewModels\ModifyHRViewModel.cs" />
+    <Compile Include="ViewModels\ModifyRDViewModel.cs" />
+    <Compile Include="ViewModels\ReadOnlyFinancesViewModel.cs" />
+    <Compile Include="ViewModels\ReadOnlyHRViewModel.cs" />
+    <Compile Include="ViewModels\ReadOnlyRDViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\AddEmployee.xaml.cs">
+      <DependentUpon>AddEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyFinancesView.xaml.cs">
+      <DependentUpon>ModifyFinancesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyHRView.xaml.cs">
+      <DependentUpon>ModifyHRView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyRDView.xaml.cs">
+      <DependentUpon>ModifyRDView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReadOnlyFinancesView.xaml.cs">
+      <DependentUpon>ReadOnlyFinancesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReadOnlyHRView.xaml.cs">
+      <DependentUpon>ReadOnlyHRView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReadOnlyRDView.xaml.cs">
+      <DependentUpon>ReadOnlyRDView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,8 +116,74 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModifyFinancesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModifyHRView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModifyRDView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReadOnlyFinancesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReadOnlyHRView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReadOnlyRDView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\EmployeeDataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeDataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeDataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDataBaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblAccessLevel.cs">
+      <DependentUpon>EmployeeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblEmployee.cs">
+      <DependentUpon>EmployeeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblManager.cs">
+      <DependentUpon>EmployeeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblReport.cs">
+      <DependentUpon>EmployeeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblSector.cs">
+      <DependentUpon>EmployeeDataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +201,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\EmployeeDataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeDataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EmployeeDataBaseModel.edmx.diagram">
+      <DependentUpon>EmployeeDataBaseModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +217,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\EmployeeDataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EmployeeDataBaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>EmployeeDataBaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\EmployeeDataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeDataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDataBaseModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

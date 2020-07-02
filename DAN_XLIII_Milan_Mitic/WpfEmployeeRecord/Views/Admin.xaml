@@ -1,0 +1,145 @@
+﻿<Window x:Class="WpfEmployeeRecord.Views.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfEmployeeRecord.Views"
+        mc:Ignorable="d"
+        Title="Admin" Height="450" Width="400">
+    <Grid>
+        <Label Content="Name:" HorizontalAlignment="Left"
+               Margin="40,10,0,0"
+               VerticalAlignment="Top"
+               RenderTransformOrigin="-1.579,0.192" />
+        <Label Content="Last name:"
+               HorizontalAlignment="Left"
+               Margin="40,40,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="JMBG:"
+               HorizontalAlignment="Left"
+               Margin="40,70,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Account number:"
+               HorizontalAlignment="Left"
+               Margin="40,100,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="E-mail:"
+               HorizontalAlignment="Left"
+               Margin="40,130,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Salary:"
+               HorizontalAlignment="Left"
+               Margin="40,160,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Position:"
+               HorizontalAlignment="Left"
+               Margin="40,190,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Username:"
+               HorizontalAlignment="Left"
+               Margin="40,220,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Password:"
+               HorizontalAlignment="Left"
+               Margin="40,250,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Sector:"
+               HorizontalAlignment="Left"
+               Margin="40,280,0,0"
+               VerticalAlignment="Top" />
+        <Label Content="Acces level:"
+               HorizontalAlignment="Left"
+               Margin="40,310,0,0"
+               VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,13,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.EmployeeName, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,43,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.EmployeeLastName, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,73,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.JMBG, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,103,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.BankAccountNumber, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,133,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.Email, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,163,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.Salary, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,193,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.Position, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,223,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.UserName, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="160,253,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Employee.Pass, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <ComboBox HorizontalAlignment="Left"
+                  DisplayMemberPath="SectorName"
+                  ItemsSource="{Binding SectorList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Sector, UpdateSourceTrigger=PropertyChanged}"
+                  Margin="160,283,0,0"
+                  VerticalAlignment="Top"
+                  Width="120" />
+        <ComboBox HorizontalAlignment="Left"
+                  DisplayMemberPath="AccessLevel"
+                  ItemsSource="{Binding AccessLevelList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding AccessLevel, UpdateSourceTrigger=PropertyChanged}"
+                  Margin="160,313,0,0"
+                  VerticalAlignment="Top"
+                  Width="120" />
+        <Button Content="Save"
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="40,360,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                RenderTransformOrigin="0.32,2.25" />
+        <Button Content="LogOut"
+                Command="{Binding LogOut, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="120,360,0,0"
+                VerticalAlignment="Top"
+                Width="75" />
+    </Grid>
+</Window>

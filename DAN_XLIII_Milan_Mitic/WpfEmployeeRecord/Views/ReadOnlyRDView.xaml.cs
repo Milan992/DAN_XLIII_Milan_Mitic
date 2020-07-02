@@ -10,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using WpfEmployeeRecord.ViewModels;
 
-namespace WpfEmployeeRecord
+namespace WpfEmployeeRecord.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ReadOnlyRDView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ReadOnlyRDView : Window
     {
-        public MainWindow()
+        public ReadOnlyRDView()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel(this);
+            this.DataContext = new ReadOnlyRDViewModel(this);
         }
     }
 }
