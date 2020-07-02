@@ -13,6 +13,12 @@ namespace WpfEmployeeRecord
         // int to keep an ID of the employee that tries to login.
         static int id;
 
+        /// <summary>
+        /// Returns employee's role.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public string Role(string userName, string password)
         {
             try
@@ -31,6 +37,12 @@ namespace WpfEmployeeRecord
             }
         }
 
+        /// <summary>
+        /// Checks if there is any employee in the database with entered username and password.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool IsEmployee(string userName, string password)
         {
             try
@@ -45,6 +57,60 @@ namespace WpfEmployeeRecord
             catch
             {
                 return false;
+            }
+        }
+
+        public tblEmployee AddEmployee(tblEmployee employee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddManager(int employeeID, int sectorID, int accessLevelID)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Adds all the acces levels from the database to a list.
+        /// </summary>
+        /// <returns></returns>
+        public List<tblAccessLevel> GetAllAccesLevels()
+        {
+            try
+            {
+                using (EmployeeEntities context = new EmployeeEntities())
+                {
+                    List<tblAccessLevel> list = new List<tblAccessLevel>();
+                    list = (from x in context.tblAccessLevels select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Adds all the sectors from the database to a list.
+        /// </summary>
+        /// <returns></returns>
+        public List<tblSector> GetAllSectors()
+        {
+            try
+            {
+                using (EmployeeEntities context = new EmployeeEntities())
+                {
+                    List<tblSector> list = new List<tblSector>();
+                    list = (from x in context.tblSectors select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write("Exception" + ex.Message.ToString());
+                return null;
             }
         }
     }
