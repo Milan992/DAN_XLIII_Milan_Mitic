@@ -62,9 +62,38 @@ namespace WpfEmployeeRecord
 
         public tblEmployee AddEmployee(tblEmployee employee)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                employee.DateOfBirth = GetDateFromJmbg(employee.JMBG);
 
+                using (EmployeeEntities context = new EmployeeEntities())
+                {
+                    tblEmployee newEmployee = new tblEmployee();
+
+                    newEmployee.EmployeeName = employee.EmployeeName;
+                    newEmployee.EmployeeLastName = employee.EmployeeLastName;
+                    newEmployee.DateOfBirth = employee.DateOfBirth;
+                    newEmployee.JMBG = employee.JMBG;
+                    newEmployee.BankAccountNumber = employee.BankAccountNumber;
+                    newEmployee.Email = employee.Email;
+                    newEmployee.Salary = employee.Salary;
+                    newEmployee.Position = employee.Position;
+                    newEmployee.UserName = employee.UserName;
+                    newEmployee.Pass = employee.Pass;
+
+                    context.tblEmployees.Add(employee);
+                    context.SaveChanges();
+
+                    newEmployee.EmployeeID = employee.EmployeeID;
+                    return newEmployee;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
         public void AddManager(int employeeID, int sectorID, int accessLevelID)
         {
             throw new NotImplementedException();
