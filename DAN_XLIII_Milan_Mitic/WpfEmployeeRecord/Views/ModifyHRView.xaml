@@ -45,5 +45,11 @@
                 Margin="20,215,0,0"
                 VerticalAlignment="Top"
                 Width="130" />
+        <Button Content="Fill report"
+                Command="{Binding FillReport, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="200,215,0,0"
+                VerticalAlignment="Top"
+                Width="130" />
     </Grid>
 </Window>

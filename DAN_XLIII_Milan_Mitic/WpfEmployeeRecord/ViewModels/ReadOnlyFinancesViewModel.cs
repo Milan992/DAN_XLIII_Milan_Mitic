@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using WpfEmployeeRecord.Model;
 using WpfEmployeeRecord.Views;
 
@@ -55,6 +56,36 @@ namespace WpfEmployeeRecord.ViewModels
                 employeeList = value;
                 OnPropertyChanged("EmployeeList");
             }
+        }
+
+        #endregion
+
+        #region Commads
+
+        private ICommand fillReport;
+
+        public ICommand FillReport
+        {
+            get
+            {
+                if (fillReport == null)
+                {
+                    fillReport = new RelayCommand(param => FillReportExecute(), param => CanFillReportExecute());
+                }
+
+                return fillReport;
+            }
+        }
+
+        private void FillReportExecute()
+        {
+            Employee employee = new Employee();
+            employee.ShowDialog();
+        }
+
+        private bool CanFillReportExecute()
+        {
+            return true;
         }
 
         #endregion

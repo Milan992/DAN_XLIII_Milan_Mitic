@@ -39,5 +39,11 @@
                                     Binding="{Binding UserName}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Fill report"
+                Command="{Binding FillReport, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="200,215,0,0"
+                VerticalAlignment="Top"
+                Width="130" />
     </Grid>
 </Window>

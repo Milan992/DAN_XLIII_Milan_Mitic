@@ -95,7 +95,31 @@ namespace WpfEmployeeRecord.ViewModels
         {
             return true;
         }
+        private ICommand fillReport;
 
+        public ICommand FillReport
+        {
+            get
+            {
+                if (fillReport == null)
+                {
+                    fillReport = new RelayCommand(param => FillReportExecute(), param => CanFillReportExecute());
+                }
+
+                return fillReport;
+            }
+        }
+
+        private void FillReportExecute()
+        {
+            Employee employee = new Employee();
+            employee.ShowDialog();
+        }
+
+        private bool CanFillReportExecute()
+        {
+            return true;
+        }
         #endregion
     }
 }
